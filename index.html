@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عقل يانع - تحديات عقلية يومية</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>عقل يانع</h1>
+                    <p class="tagline">تحديات عقلية يومية</p>
+                </div>
+            </div>
+            
+            <div class="nav-stats">
+                <div class="stat-item">
+                    <i class="fas fa-fire"></i>
+                    <span>تحدي اليوم</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-trophy"></i>
+                    <span id="userPoints">0 نقطة</span>
+                </div>
+                <div class="stat-item streak">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span id="streakCount">0 يوم</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-container">
+        <!-- بطاقة الترحيب -->
+        <section class="hero-card animate__animated animate__fadeIn">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2 class="hero-title">هل أنت مستعد لتحدي اليوم؟ 🧠</h2>
+                    <p class="hero-subtitle">اختبار يومي لتنشيط عقلك وتطوير مهاراتك الذهنية</p>
+                    
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h3 id="activeUsers">2,847</h3>
+                                <p>مستخدم نشط</p>
+                            </div>
+                        </div>
+                        <div class="hero-stat">
+                            <i class="fas fa-puzzle-piece"></i>
+                            <div>
+                                <h3 id="totalChallenges">1,258</h3>
+                                <p>تحدي مختلف</p>
+                            </div>
+                        </div>
+                        <div class="hero-stat">
+                            <i class="fas fa-brain"></i>
+                            <div>
+                                <h3 id="avgIQ">+15%</h3>
+                                <p>تحسن في التركيز</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-illustration">
+                    <div class="brain-animation">
+                        <i class="fas fa-brain main-brain"></i>
+                        <div class="neuron neuron-1"></div>
+                        <div class="neuron neuron-2"></div>
+                        <div class="neuron neuron-3"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- التحدي اليومي -->
+        <section class="daily-challenge animate__animated animate__slideInUp">
+            <div class="challenge-header">
+                <div class="date-badge">
+                    <i class="fas fa-calendar-day"></i>
+                    <span id="currentDate">الاثنين 1 يناير</span>
+                </div>
+                <h2 class="section-title">🎯 التحدي اليومي</h2>
+                <div class="difficulty">
+                    <span class="difficulty-badge medium">متوسط</span>
+                    <span class="points-reward">
+                        <i class="fas fa-gem"></i>
+                        <span>+15 نقطة</span>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="challenge-card">
+                <div class="challenge-type">
+                    <i class="fas fa-chess"></i>
+                    <span>لغز منطقي</span>
+                </div>
+                
+                <div class="challenge-content">
+                    <h3 id="challengeTitle">لغز الأوزان</h3>
+                    
+                    <div class="challenge-description">
+                        <p id="challengeText">
+                            لديك 9 كرات متماثلة في الشكل، لكن واحدة منها أخف قليلاً من الباقي. 
+                            كيف يمكنك معرفة الكرة الأخف باستخدام الميزان ذو الكفتين مرتين فقط؟
+                        </p>
+                        
+                        <div class="challenge-image" id="challengeImage">
+                            <!-- سيتم إضافة الصورة ديناميكيًا -->
+                        </div>
+                    </div>
+                    
+                    <!-- خيارات الإجابة (للألغاز متعددة الخيارات) -->
+                    <div class="options-container" id="optionsContainer">
+                        <div class="option" data-correct="true">
+                            <span class="option-letter">أ</span>
+                            <p>تقسيم الكرات إلى 3 مجموعات (3،3،3) ووزن مجموعتين</p>
+                        </div>
+                        <div class="option">
+                            <span class="option-letter">ب</span>
+                            <p>وزن كل كرة على حدة حتى تجد الأخف</p>
+                        </div>
+                        <div class="option">
+                            <span class="option-letter">ج</span>
+                            <p>تقسيم الكرات إلى مجموعتين (4،5) ووزن المجموعتين</p>
+                        </div>
+                        <div class="option">
+                            <span class="option-letter">د</span>
+                            <p>لا يمكن معرفتها بمرتين فقط</p>
+                        </div>
+                    </div>
+                    
+                    <!-- حقل الإجابة (للألغاز المفتوحة) -->
+                    <div class="answer-container" id="answerContainer" style="display: none;">
+                        <input type="text" id="userAnswer" placeholder="اكتب إجابتك هنا...">
+                        <button class="submit-btn" id="submitAnswerBtn">تحقق من الإجابة</button>
+                    </div>
+                    
+                    <!-- أدوات المساعدة -->
+                    <div class="help-tools">
+                        <button class="help-btn hint-btn">
+                            <i class="fas fa-lightbulb"></i>
+                            تلميح
+                        </button>
+                        <button class="help-btn skip-btn">
+                            <i class="fas fa-forward"></i>
+                            تخطي
+                        </button>
+                        <button class="help-btn discuss-btn">
+                            <i class="fas fa-comments"></i>
+                            مناقشة
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- التحكم في الإجابة -->
+                <div class="challenge-controls">
+                    <button class="control-btn check-btn" id="checkBtn">
+                        <i class="fas fa-check-circle"></i>
+                        تحقق من الإجابة
+                    </button>
+                    
+                    <div class="time-counter">
+                        <i class="fas fa-clock"></i>
+                        <span id="timer">02:30</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- النتيجة -->
+        <div class="result-container" id="resultContainer">
+            <div class="result-card correct" id="correctResult">
+                <div class="result-header">
+                    <i class="fas fa-trophy"></i>
+                    <h3>أحسنت! إجابة صحيحة 🎉</h3>
+                </div>
+                <p class="result-message">لقد ربحت <strong>15 نقطة</strong> وزادت سلسلتك إلى <strong>5 أيام</strong>!</p>
+                <div class="result-actions">
+                    <button class="result-btn next-btn">التحدي التالي</button>
+                    <button class="result-btn share-btn">
+                        <i class="fas fa-share-alt"></i>
+                        شارك إنجازك
+                    </button>
+                </div>
+            </div>
+            
+            <div class="result-card wrong" id="wrongResult">
+                <div class="result-header">
+                    <i class="fas fa-redo"></i>
+                    <h3>حاول مرة أخرى 🤔</h3>
+                </div>
+                <p class="result-message">الإجابة الصحيحة هي: <strong>تقسيم الكرات إلى 3 مجموعات (3،3،3)</strong></p>
+                <div class="result-actions">
+                    <button class="result-btn retry-btn">حاول مرة أخرى</button>
+                    <button class="result-btn solution-btn">شاهد الحل الكامل</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- أنواع التحديات -->
+        <section class="categories-section">
+            <h2 class="section-title">🧩 أنواع التحديات</h2>
+            <p class="section-subtitle">اختبر مهاراتك في مجالات متنوعة</p>
+            
+            <div class="categories-grid">
+                <div class="category-card logic">
+                    <div class="category-icon">
+                        <i class="fas fa-chess-board"></i>
+                    </div>
+                    <h3>المنطق والاستدلال</h3>
+                    <p>ألغاز منطقية وأحجيات ذهنية</p>
+                    <div class="category-stats">
+                        <span>48 تحدي</span>
+                        <span class="progress-score">85%</span>
+                    </div>
+                </div>
+                
+                <div class="category-card math">
+                    <div class="category-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>الرياضيات والذكاء</h3>
+                    <p>مسائل رياضية وحساب ذهني</p>
+                    <div class="category-stats">
+                        <span>36 تحدي</span>
+                        <span class="progress-score">72%</span>
+                    </div>
+                </div>
+                
+                <div class="category-card memory">
+                    <div class="category-icon">
+                        <i class="fas fa-memory"></i>
+                    </div>
+                    <h3>الذاكرة والتركيز</h3>
+                    <p>تمارين تقوية الذاكرة البصرية</p>
+                    <div class="category-stats">
+                        <span>24 تحدي</span>
+                        <span class="progress-score">68%</span>
+                    </div>
+                </div>
+                
+                <div class="category-card language">
+                    <div class="category-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>اللغة والألغاز</h3>
+                    <p>كلمات متقاطعة وأحجيات لغوية</p>
+                    <div class="category-stats">
+                        <span>42 تحدي</span>
+                        <span class="progress-score">91%</span>
+                    </div>
+                </div>
+                
+                <div class="category-card visual">
+                    <div class="category-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>البصر والمكان</h3>
+                    <p>ألغاز بصرية وتصور مكاني</p>
+                    <div class="category-stats">
+                        <span>28 تحدي</span>
+                        <span class="progress-score">64%</span>
+                    </div>
+                </div>
+                
+                <div class="category-card creative">
+                    <div class="category-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>الإبداع والابتكار</h3>
+                    <p>مسائل إبداعية وتفكير جانبي</p>
+                    <div class="category-stats">
+                        <span>31 تحدي</span>
+                        <span class="progress-score">79%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- لوحة المتصدرين -->
+        <section class="leaderboard-section">
+            <div class="section-header">
+                <h2 class="section-title">🏆 لوحة المتصدرين</h2>
+                <div class="time-filter">
+                    <button class="filter-btn active">اليوم</button>
+                    <button class="filter-btn">الأسبوع</button>
+                    <button class="filter-btn">الشهر</button>
+                    <button class="filter-btn">الكلي</button>
+                </div>
+            </div>
+            
+            <div class="leaderboard-container">
+                <div class="leaderboard-card">
+                    <div class="user-rank first">
+                        <div class="rank-number">1</div>
+                        <div class="user-info">
+                            <div class="user-avatar">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="user-details">
+                                <h4>أحمد العلي</h4>
+                                <p>خبير الألغاز</p>
+                            </div>
+                        </div>
+                        <div class="user-points">
+                            <span>2,845</span>
+                            <i class="fas fa-gem"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="user-rank second">
+                        <div class="rank-number">2</div>
+                        <div class="user-info">
+                            <div class="user-avatar">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="user-details">
+                                <h4>سارة محمد</h4>
+                                <p>ملكة المنطق</p>
+                            </div>
+                        </div>
+                        <div class="user-points">
+                            <span>2,567</span>
+                            <i class="fas fa-gem"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="user-rank third">
+                        <div class="rank-number">3</div>
+                        <div class="user-info">
+                            <div class="user-avatar">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="user-details">
+                                <h4>خالد الشمري</h4>
+                                <p>ساحر الرياضيات</p>
+                            </div>
+                        </div>
+                        <div class="user-points">
+                            <span>2,340</span>
+                            <i class="fas fa-gem"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- المستخدم الحالي -->
+                    <div class="user-rank current-user">
+                        <div class="rank-number">28</div>
+                        <div class="user-info">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="user-details">
+                                <h4>أنت</h4>
+                                <p>مبتدئ نشيط</p>
+                            </div>
+                        </div>
+                        <div class="user-points">
+                            <span>450</span>
+                            <i class="fas fa-gem"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="leaderboard-stats">
+                    <div class="stat-card">
+                        <h3>تصنيفك بين اللاعبين</h3>
+                        <div class="stat-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%"></div>
+                            </div>
+                            <span>أفضل من 65%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <h3>هدفك القادم</h3>
+                        <div class="goal-info">
+                            <i class="fas fa-flag-checkered"></i>
+                            <div>
+                                <h4>الوصول إلى 1000 نقطة</h4>
+                                <p>باقي 550 نقطة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- التحديات السابقة -->
+        <section class="history-section">
+            <h2 class="section-title">📜 التحديات السابقة</h2>
+            
+            <div class="history-grid">
+                <div class="history-card solved">
+                    <div class="history-date">أمس</div>
+                    <h3>لغز المتاهة العددية</h3>
+                    <p>أوجد المسار الذي مجموعه 100</p>
+                    <div class="history-result">
+                        <span class="result-badge correct">✓ تم الحل</span>
+                        <span class="points-earned">+12 نقطة</span>
+                    </div>
+                </div>
+                
+                <div class="history-card solved">
+                    <div class="history-date">قبل يومين</div>
+                    <h3>تحدي الذاكرة البصرية</h3>
+                    <p>تذكر تسلسل 15 صورة</p>
+                    <div class="history-result">
+                        <span class="result-badge correct">✓ تم الحل</span>
+                        <span class="points-earned">+10 نقطة</span>
+                    </div>
+                </div>
+                
+                <div class="history-card failed">
+                    <div class="history-date">قبل 3 أيام</div>
+                    <h3>لغز الجسور السبعة</h3>
+                    <p>مشكلة أويلر الكلاسيكية</p>
+                    <div class="history-result">
+                        <span class="result-badge wrong">✗ فشل</span>
+                        <span class="points-earned">+5 نقطة</span>
+                    </div>
+                </div>
+                
+                <div class="history-card solved">
+                    <div class="history-date">قبل 4 أيام</div>
+                    <h3>كلمات متقاطعة</h3>
+                    <p>أكمل 20 كلمة في 5 دقائق</p>
+                    <div class="history-result">
+                        <span class="result-badge correct">✓ تم الحل</span>
+                        <span class="points-earned">+18 نقطة</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- فوائد التمرين الذهني -->
+        <section class="benefits-section">
+            <h2 class="section-title">💪 فوائد التمرين الذهني اليومي</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>تحسين الذاكرة</h3>
+                    <p>زيادة سعة التخزين والاسترجاع بنسبة تصل إلى 30%</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>سرعة البديهة</h3>
+                    <p>تقليل وقت اتخاذ القرارات المعقدة بنسبة 40%</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>تعزيز الإبداع</h3>
+                    <p>فتح مسارات تفكير جديدة وحلول مبتكرة</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>صحة الدماغ</h3>
+                    <p>تقليل خطر التدهور المعرفي مع التقدم بالعمر</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-brand">
+                    <i class="fas fa-brain"></i>
+                    <h3>عقل يانع</h3>
+                </div>
+                <p class="footer-description">
+                    منصة عربية لتطوير القدرات العقلية عبر تحديات يومية ممتعة
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>أنواع التحديات</h4>
+                <ul>
+                    <li><a href="#">المنطق والاستدلال</a></li>
+                    <li><a href="#">الرياضيات والذكاء</a></li>
+                    <li><a href="#">الذاكرة والتركيز</a></li>
+                    <li><a href="#">اللغة والألغاز</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>المصادر</h4>
+                <ul>
+                    <li><a href="#">بنك الأسئلة</a></li>
+                    <li><a href="#">مقالات علمية</a></li>
+                    <li><a href="#">كتب مقترحة</a></li>
+                    <li><a href="#">أبحاث الدماغ</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>حول المشروع</h4>
+                <ul>
+                    <li><a href="#">فريق العمل</a></li>
+                    <li><a href="#">كيف نعمل</a></li>
+                    <li><a href="#">الخصوصية</a></li>
+                    <li><a href="#">اتصل بنا</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2024 عقل يانع - جميع الحقوق محفوظة</p>
+            <p class="motivation">العقل كالعضلة، يحتاج تمرينًا يوميًا 💪🧠</p>
+            <p>OMAR_KSA Edition</p>
+        </div>
+    </footer>
+
+    <!-- الإشعارات -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="notificationText"></span>
+        </div>
+    </div>
+
+    <!-- نموذج التلميح -->
+    <div id="hintModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-lightbulb"></i> تلميح</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="hintText">جرب تقسيم الكرات إلى 3 مجموعات متساوية. تذكر أن لديك ميزانًا بكرتين فقط.</p>
+                <div class="modal-cost">
+                    <i class="fas fa-gem"></i>
+                    <span>يكلف 5 نقاط</span>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="modal-btn cancel-btn">إلغاء</button>
+                <button class="modal-btn confirm-btn">استخدام التلميح</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- البرامج النصية -->
+    <script src="script.js"></script>
+    <script>
+        // تهيئة التاريخ
+        const arabicDays = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+        const arabicMonths = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
+        
+        const today = new Date();
+        const dayName = arabicDays[today.getDay()];
+        const day = today.getDate();
+        const month = arabicMonths[today.getMonth()];
+        
+        document.getElementById('currentDate').textContent = `${dayName} ${day} ${month}`;
+    </script>
+    <script src="main.js"></script>
+    <head>
+    <meta charset="UTF-8">
+    <title>موقعي</title>
+    <link rel="stylesheet" href="main.css">
+    <head>
+    <title>اسم موقعي الجديد</title>
+
+    <!-- أيقونة الموقع (اللوجو بجانب الاسم) -->
+    <link rel="icon" type="image/png" href="tr.png">
+    <head>
+    <title>اضغط لتنمي عقلك</title>
+</head>
+
+</head>
+
+</body>
+</html>
